@@ -23,6 +23,27 @@
                 <th>Description</th>
                 <td>{{ product.description }}</td>
             </tr>
+            <tr>
+                <th>Manufacturer</th>
+                {% if product.manufacturer.name is defined %}
+                <td>{{ product.manufacturer.name }}</td>
+                {% else %}
+                    not known
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Suppliers</th>
+                <td>
+                    {% if product.supplier is defined %}
+                {% for supplier in product.suppliers %}
+                {{ supplier.name }}
+                    <br>
+                {% endfor %}
+                    {% else %}
+                    not defined
+                    {% endif %}
+                </td>
+            </tr>
         </tbody>
     </table>
 

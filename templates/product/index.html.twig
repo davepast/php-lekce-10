@@ -12,6 +12,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Description</th>
+                <th>Manufacturer</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,12 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.description }}</td>
+                <td>
+                    {% if product.manufacturer.name is defined %}
+                        {{ product.manufacturer.name }}
+                    {% endif %}
+                </td>
+
                 <td>
                     <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
                     <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
